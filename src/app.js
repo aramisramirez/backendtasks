@@ -8,10 +8,12 @@ import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";
 import { options } from "./swaggerOptions";
 
+import { config } from "./config";
+
 const app = express();
 const specs = swaggerJSDoc(options);
 
-app.set("port", 3000);
+app.set("port", config.PORT);
 
 app.use(cors());
 app.use(morgan("dev"));
